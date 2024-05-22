@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>G1 Compiler</title>
+	<link rel="stylesheet" href="css\cfg.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  	<link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+	<div class="nav">
+		<ul>
+            <li><a href="http://localhost:8501">COMPILER</a></li>
+            <li><a style="color: #a33852" href="cfg.html">CFG</a></li>
+            <li><a href="pda.html">PDA</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="manual.html">MANUAL</a></li>
+            <li style="float:right"><a class="active" href="home.html">HOME</a></li>
+          </ul>
+	</div>
+	<div class="container">
+		<div class="content">
+			<div class="sub">
+				<h3 style="color: #a33852"> <a href="#">NO.1: REGULAR EXPRESSION</a></h3>
+				<ul>(a+b)(a+b)*(aa+bb)(ab+ba)(a+b)*(aba+baa)</ul>
+
+				</div>
+
+			<div class="sub">
+				<h3 style="color: #a33852"> <a href="#">(a+b)(a+b)*(aa+bb)(ab+ba)(a+b)*(aba+baa)</a></h3>
+
+				<ul>
+                    <br>S → abC | bA | aaB | bbB</br>
+                    <br>A → aA | bA</br>
+                    <br>B → aA | bA | aaB | bbB</br>
+                    <br>C → aC | bC | D </br>
+                    <br>D → aba | baa</br> 
+				</ul>
+			</div>
+			<div class="sub">
+				<h3 style="color:#a33852"> <a href="#">NO.2: REGULAR EXPRESSION</a></h3>
+				<ul>
+                    <br>(11+00)(1+0)*(101+111+01)(00*+11*)(1+0+11)</br>
+                </ul>
+
+			</div>
+			<div class="sub">
+				<h3 style="color: #f4c2ab"> <a href="#"> (11+00)(1+0)*(101+111+01)(00*+11*)(1+0+11) </a></h3>
+				<ul>
+                    <br>S → XYZAD</br>
+                    <br>X → 11 | 00</br>
+                    <br>Y → 1Y | 0Y | ^ </br>
+                    <br>Z → 101 | 111 | 01</br>
+                    <br>A → 0B | 1C</br>
+                    <br>B → 0B | ^ </br>
+                    <br>C → 1C | ^</br>
+                    <br>D → 1 | 0 | 11</br>
+				</ul>
+            </div>
+        </div>
+	</div>
+
+
+</body>
+</html>
