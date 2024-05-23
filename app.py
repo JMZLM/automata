@@ -1,6 +1,8 @@
 import streamlit as st
 import utils
-
+import requests
+from PIL import Image
+from io import BytesIO
 
 # Streamlit interface
 def main():
@@ -184,12 +186,16 @@ def main():
                 else:
                     st.error(f"The string '{string_input}' is not valid for the DFA.", icon="❌")
 
-        st.subheader("CFG")
-        st.image("CFGall.png", caption="", width=840)
-        st.subheader("PDA")
-        st.image("PDA1.png", caption="", use_column_width=True)
+        image_url = "https://drive.google.com/uc?export=download&id=1VFB5uFRxs2JQpPLOQZCrxlEZFilz-AKQ"
 
-        st.image("PDA2.png", caption="", use_column_width=True)
+        # Function to fetch and display image
+        def display_image_from_url(url, width=500):
+            response = requests.get(url)
+            img = Image.open(BytesIO(response.content))
+            st.image(img, caption="", width=width, use_column_width=True)
+
+        # Display the image
+        display_image_from_url(image_url, width=840)
 
 if __name__ == "__main__":
     main()
