@@ -62,12 +62,12 @@ def main():
         <section class="container">
             <div class="nav">
                 <ul>
-                  <li><a style="color: #a33852" href="http://localhost:8501">COMPILER</a></li>
-                  <li><a href="http://localhost:63342/automata/cfg.html">CFG</a></li>
-                  <li><a href="http://localhost:63342/automata/pda.html">PDA</a></li>
-                  <li><a href="http://localhost:63342/automata/about.html">ABOUT</a></li>
-                  <li><a href="http://localhost:63342/automata/manual.html">MANUAL</a></li>
-                  <li style="float:right"><a class="active" href="http://localhost:63342/automata/home.html">HOME</a></li>
+                    <li><a style="color: #a33852" href="#">COMPILER</a></li>
+                    <li><a href="cfg.html">CFG</a></li>
+                    <li><a href="http://localhost:63342/automata/pda.html">PDA</a></li>
+                    <li><a href="http://localhost:63342/automata/about.html">ABOUT</a></li>
+                    <li><a href="http://localhost:63342/automata/manual.html">MANUAL</a></li>
+                    <li style="float:right"><a class="active" href="http://localhost:63342/automata/home.html">HOME</a></li>
                 </ul>
             </div>
         </section>
@@ -79,7 +79,7 @@ def main():
     if len(st.session_state) == 0:
         st.session_state.disabled = True
         st.session_state.placeholder_text = ""
-    
+
     # Callback function for regex_input
     def regex_input_callbk():
         # Set disable for string_input and validate_button
@@ -87,18 +87,18 @@ def main():
             st.session_state.disabled = True
         else:
             st.session_state.disabled = False
-        
+
         # Set placeholder text for string_input
         if st.session_state.regex_input == utils.regex_options[1]:
             st.session_state.placeholder_text = "aabbaaababbaa"
         elif st.session_state.regex_input == utils.regex_options[2]:
             st.session_state.placeholder_text = "11100111"
         else:
-            st.session_state.placeholder_text = ""  
-        
+            st.session_state.placeholder_text = ""
+
         # Clear string_input
         st.session_state.string_input = ""
-    
+
 
     # Create container to group blocks of code
     title_con = st.container()
@@ -132,7 +132,7 @@ def main():
             validity of the string by checking each state through an animation.
             '''
             )
-        
+
         # Select box input to select regex
         regex_input = st.selectbox(
             label = "Select a Regular Expression",
@@ -140,7 +140,7 @@ def main():
             key="regex_input",
             on_change=regex_input_callbk
         )
-        
+
         # Text input for string validation
         string_input = st.text_input(
             label = "Enter a string to check its validity for displayed DFA",
@@ -148,25 +148,25 @@ def main():
             disabled=st.session_state.disabled,
             placeholder=st.session_state.placeholder_text
         )
-        
+
         # Validate button to run string validation
         validate_button = st.button(
             label = "Validate",
             disabled=st.session_state.disabled
         )
-        
+
         # Output for regex_input, display dfa, cfg, and pda of selected regex
         if regex_input == utils.regex_options[1]:
-            current_dfa = utils.dfa_1            
+            current_dfa = utils.dfa_1
             st.write("**Deterministic Finite Automaton**")
             if not string_input:
                 dfa = utils.generate_dfa_visualization(current_dfa)
                 st.graphviz_chart(dfa)
 
 
-        
+
         elif regex_input == utils.regex_options[2]:
-            current_dfa = utils.dfa_2            
+            current_dfa = utils.dfa_2
             st.write("**Deterministic Finite Automaton**")
             if not string_input:
                 dfa = utils.generate_dfa_visualization(current_dfa)
@@ -181,11 +181,11 @@ def main():
             # Check if string_input is empty
             if len(string_input) == 0:
                 st.error("Empty/Invalid Input", icon="❌")
-            
+
             # Check if string_input has characters not in the alphabet of selected regex
             elif not all(char in current_dfa["alphabet"] for char in string_input):
                 st.error(f"String '{string_input}' contains invalid characters, please only use characters from the alphabet: {current_dfa['alphabet']}", icon="❌")
-            
+
             else:
                 st.write(f"Entered String: `{string_input}`")
                 is_valid, state_checks = utils.validate_dfa(current_dfa, string_input)
