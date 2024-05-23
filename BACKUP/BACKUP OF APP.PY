@@ -56,9 +56,26 @@ def main():
         unsafe_allow_html=True
     )
 
+    # Content
+    st.markdown(
+        """
+        <section class="container">
+            <div class="nav">
+                <ul>
+                    <li><a style="color: #a33852" href="#">COMPILER</a></li>
+                    <li><a href="http://localhost:63342/automata/cfg.html">CFG</a></li>
+                    <li><a href="http://localhost:63342/automata/pda.html">PDA</a></li>
+                    <li><a href="http://localhost:63342/automata/about.html">ABOUT</a></li>
+                    <li><a href="http://localhost:63342/automata/manual.html">MANUAL</a></li>
+                    <li style="float:right"><a class="active" href="http://localhost:63342/automata/home.html">HOME</a></li>
+                </ul>
+            </div>
+        </section>
+        """,
+        unsafe_allow_html=True
+    )
 
-
-
+    
 
 
 
@@ -184,12 +201,6 @@ def main():
                 else:
                     st.error(f"The string '{string_input}' is not valid for the DFA.", icon="❌")
 
-        st.subheader("CFG")
-        st.image("CFGall.png", caption="", width=840)
-        st.subheader("PDA")
-        st.image("PDA1.png", caption="", use_column_width=True)
-
-        st.image("PDA2.png", caption="", use_column_width=True)
 
 if __name__ == "__main__":
     main()
