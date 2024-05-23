@@ -187,15 +187,21 @@ def main():
                     st.error(f"The string '{string_input}' is not valid for the DFA.", icon="❌")
 
         image_url = "https://drive.google.com/uc?export=download&id=1VFB5uFRxs2JQpPLOQZCrxlEZFilz-AKQ"
+        image_url2 = "https://drive.google.com/uc?export=download&id=1hFZgz3-WUvD8HEs8d5YXatCO8uW_q_Ej"
+        image_url3 = "https://drive.google.com/uc?export=download&id=1gpAoLl8BoA-mAqg-B78t-VG3y0K6Pxhb"
 
         # Function to fetch and display image
-        def display_image_from_url(url, width=500):
+        def display_image_from_url(url, width=None):
             response = requests.get(url)
             img = Image.open(BytesIO(response.content))
-            st.image(img, caption="", width=width, use_column_width=True)
+            st.image(img, caption="", width=width)
 
         # Display the image
+        st.subheader("CFG")
         display_image_from_url(image_url, width=840)
+        st.subheader("PDA")
+        display_image_from_url(image_url2, width=700)
+        display_image_from_url(image_url3, width=700)
 
 if __name__ == "__main__":
     main()
