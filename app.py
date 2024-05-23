@@ -8,7 +8,11 @@ def main():
     st.set_page_config(
         page_title="G1 Compiler",
         page_icon="🔀"
+
     )
+    with open("static/pages/cfg.html", "r") as f:
+        html_content = f.read()
+    st.markdown(html_content, unsafe_allow_html=True)
 
     st.markdown(
         """
