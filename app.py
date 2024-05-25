@@ -186,9 +186,9 @@ def main():
                 else:
                     st.error(f"The string '{string_input}' is not valid for the DFA.", icon="❌")
 
-        image_url = "https://drive.google.com/uc?export=download&id=1VFB5uFRxs2JQpPLOQZCrxlEZFilz-AKQ"
-        image_url2 = "https://drive.google.com/uc?export=download&id=1hFZgz3-WUvD8HEs8d5YXatCO8uW_q_Ej"
-        image_url3 = "https://drive.google.com/uc?export=download&id=1gpAoLl8BoA-mAqg-B78t-VG3y0K6Pxhb"
+        image_url = "https://drive.google.com/uc?export=download&id=1YxjQ83DQB1sjOkdNjJ10k3H0zaFHTcV1"
+        image_url2 = "https://drive.google.com/uc?export=download&id=1ylH8XYcQXG71WpJ8YtYAOHlCLo_GGZAe"
+        image_url3 = "https://drive.google.com/uc?export=download&id=1P3jtAIEhNu8RqIHHtxLYrhcaiOVGBS4c"
 
         # Function to fetch and display image
         def display_image_from_url(url, width=None):
@@ -198,10 +198,21 @@ def main():
 
         # Display the image
         st.subheader("CFG")
-        display_image_from_url(image_url, width=840)
+        display_image_from_url(image_url, width=830)
         st.subheader("PDA")
-        display_image_from_url(image_url2, width=700)
+        display_image_from_url(image_url2, width=730)
         display_image_from_url(image_url3, width=700)
+
+        image_url4 = "https://drive.google.com/uc?export=download&id=1eXrxDWrV6ETGTGM-EJKmjwGVbjcN-u_H"
+        image_url5 = "https://drive.google.com/uc?export=download&id=1yBqq0aSu1BpEExKHZoHgaCD3ZNO29tv_"
+
+        st.subheader("ABOUT")
+        display_image_from_url(image_url4, width=830)
+        st.subheader("USER MANUAL")
+        display_image_from_url(image_url5, width=830)
+
+
+
 
 if __name__ == "__main__":
     main()
